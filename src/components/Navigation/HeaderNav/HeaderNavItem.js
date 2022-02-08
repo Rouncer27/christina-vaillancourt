@@ -76,7 +76,7 @@ const HeaderNavItemStyled = styled.li`
     transition: all 0.35s ease-in-out;
 
     &:hover {
-      color: ${colors.colorTertiary};
+      color: ${colors.colorShad};
     }
 
     &[aria-current="page"] {
@@ -86,11 +86,6 @@ const HeaderNavItemStyled = styled.li`
       &:hover {
         cursor: default;
       }
-    }
-
-    &:focus {
-      outline: 0.1rem solid ${colors.colorPrimary};
-      transition: all 0.35s ease-in-out;
     }
   }
 

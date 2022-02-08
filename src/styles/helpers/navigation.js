@@ -14,7 +14,12 @@ export const Nav1Base = `
   cursor: pointer;
 
   &:hover {
-    color: ${colors.colorAccent};
+    color: ${colors.colorShad};
+  }
+
+  &:focus {
+    outline: 0.1rem solid ${colors.colorPrimary};
+    transition: all 0.35s ease-in-out;
   }
 `
 export const Nav1White = `
@@ -30,6 +35,11 @@ export const Nav1Black = `
 export const Nav1Blue = `
   ${Nav1Base};
   color: ${colors.colorSecondary};
+`
+
+export const Nav1Grey = `
+  ${Nav1Base};
+  color: ${colors.colorAccent};
 `
 
 export const Nav2Base = `

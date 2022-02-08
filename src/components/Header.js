@@ -41,7 +41,8 @@ const StyledHeader = styled.header`
   }
 
   .headerLogo {
-    width: 17.5rem;
+    width: 100%;
+    max-width: 37.5rem;
     margin: 0 auto;
 
     @media (min-width: 768px) {
@@ -79,7 +80,7 @@ const StyledHeader = styled.header`
 
       @media (min-width: 768px) {
         width: calc(100%);
-        max-width: 30rem;
+        max-width: 45rem;
         margin: 2rem auto;
       }
 

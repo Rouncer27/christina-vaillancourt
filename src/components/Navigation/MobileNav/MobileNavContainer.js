@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import MobileNavItem from "./MobileNavItem"
-import { Nav1Black, colors } from "../../../styles/helpers"
 
 const MobileNavContainer = ({ navitems }) => {
   const topNavItems = navitems.filter(item => item.parentDatabaseId === 0)
@@ -35,28 +34,6 @@ const MobileNavContainerStyled = styled.nav`
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-
-    .logoutBtn {
-      position: relative;
-      width: 100%;
-      border-bottom: 0.1rem solid ${colors.white};
-      text-align: center;
-
-      button,
-      a {
-        ${Nav1Black};
-        display: block;
-        width: 100%;
-        padding: 2rem;
-        border: none;
-        background-color: transparent;
-        text-transform: uppercase;
-
-        &:hover {
-          color: ${colors.colorTertiary};
-        }
-      }
-    }
   }
 `
 

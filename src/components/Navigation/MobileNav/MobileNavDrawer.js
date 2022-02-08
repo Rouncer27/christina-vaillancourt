@@ -53,8 +53,9 @@ const NavDrawer = styled.div`
   background-image: linear-gradient(
     to bottom,
     ${colors.white} 0%,
-    ${colors.colorPrimary} 50%,
-    ${colors.colorPrimary} 100%
+    ${colors.white} 10.5rem,
+    ${colors.colorSecondary} 10.5rem,
+    ${colors.colorSecondary} 100%
   );
   opacity: ${props => (props.isOpen ? 1 : 0)};
   z-index: ${props => (props.isOpen ? 9999999 : -9999999)};

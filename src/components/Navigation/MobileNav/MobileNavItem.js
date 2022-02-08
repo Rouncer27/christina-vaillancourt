@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { colors, Nav1Black } from "../../../styles/helpers"
+import { colors, Nav1White } from "../../../styles/helpers"
 
 import MobileSubMenu from "./MobileSubMenu"
 
@@ -68,19 +68,18 @@ const MobileNavItemStyled = styled.li`
   }
 
   a {
-    ${Nav1Black};
+    ${Nav1White};
     display: block;
     width: 100%;
     padding: 2rem;
-    color: ${colors.white};
-    text-transform: uppercase;
 
     &:hover {
       color: ${colors.colorTertiary};
     }
 
     &[aria-current="page"] {
-      color: ${colors.colorTertiary};
+      color: ${colors.colorSecondary};
+      background-color: ${colors.colorTertiary};
 
       &:hover {
         cursor: default;

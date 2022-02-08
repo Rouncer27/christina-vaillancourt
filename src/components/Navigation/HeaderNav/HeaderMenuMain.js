@@ -62,8 +62,12 @@ const HeaderNavStyled = styled.nav`
     display: flex;
     align-items: center;
     align-self: center;
-    justify-content: flex-end;
     width: 100%;
+
+    @media (min-width: 768px) {
+      justify-content: center;
+      margin-top: 2rem;
+    }
 
     @media (min-width: 1025px) {
       margin-top: 0;
