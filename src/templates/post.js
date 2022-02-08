@@ -6,7 +6,7 @@ import Seo from "../components/Seo"
 const Post = () => {
   return (
     <Layout>
-      <Seo />
+      <Seo title="Single Post Page" />
       <h1>Single Post Page</h1>
     </Layout>
   )

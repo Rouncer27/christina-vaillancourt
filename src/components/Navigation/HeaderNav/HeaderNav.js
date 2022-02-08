@@ -23,11 +23,11 @@ const HeaderNavStyled = styled.div`
   }
 
   @media (min-width: 1025px) {
-    width: 85%;
+    width: 65%;
   }
 
   @media (min-width: 1100px) {
-    width: 80%;
+    width: 60%;
   }
 `
 

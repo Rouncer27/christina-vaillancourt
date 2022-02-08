@@ -6,7 +6,7 @@ import Seo from "../components/Seo"
 const DefaultPage = () => {
   return (
     <Layout>
-      <Seo />
+      <Seo title="default Page" />
       <h1>default Page</h1>
     </Layout>
   )

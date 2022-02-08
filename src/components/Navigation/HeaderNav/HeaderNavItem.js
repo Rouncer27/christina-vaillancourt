@@ -70,9 +70,8 @@ const HeaderNavItemStyled = styled.li`
   button {
     ${Nav1Blue};
     margin: 0 auto;
-    padding: 0 3rem;
+    padding: 0.25rem 3rem;
     font-weight: bold;
-    text-transform: uppercase;
     text-align: center;
     transition: all 0.35s ease-in-out;
 
@@ -81,7 +80,8 @@ const HeaderNavItemStyled = styled.li`
     }
 
     &[aria-current="page"] {
-      color: ${colors.colorSecondary};
+      color: ${colors.white};
+      background-color: ${colors.colorSecondary};
 
       &:hover {
         cursor: default;
@@ -89,7 +89,7 @@ const HeaderNavItemStyled = styled.li`
     }
 
     &:focus {
-      outline: 0.4rem solid ${colors.colorSecondary};
+      outline: 0.1rem solid ${colors.colorPrimary};
       transition: all 0.35s ease-in-out;
     }
   }

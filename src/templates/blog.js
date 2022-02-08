@@ -6,7 +6,7 @@ import Seo from "../components/Seo"
 const Blog = () => {
   return (
     <Layout>
-      <Seo />
+      <Seo title="Blog" />
       <h1>Blog</h1>
     </Layout>
   )

@@ -1,19 +1,17 @@
+import fonts from "./fonts"
 import { colors } from "./index"
 import { fontSizer } from "./index"
 
 export const Nav1Base = `
-  ${fontSizer(1.2, 1.4, 76.8, 150, 1.8)};
-  font-weight: normal;
+  ${fontSizer(1.4, 1.6, 76.8, 150, 1.8)};
+  font-family: ${fonts.fontPrimary};
+  font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.57;
+  line-height: 1.5;
   letter-spacing: normal;
   transition: all 0.3s ease;
   cursor: pointer;
-
-  &:focus {
-    box-shadow: 0 0 0 0.5rem ${colors.colorSecondary};
-  }
 
   &:hover {
     color: ${colors.colorAccent};
@@ -31,7 +29,7 @@ export const Nav1Black = `
 
 export const Nav1Blue = `
   ${Nav1Base};
-  color: ${colors.colorPrimary};
+  color: ${colors.colorSecondary};
 `
 
 export const Nav2Base = `
