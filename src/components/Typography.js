@@ -112,10 +112,10 @@ const Typography = () => {
         </div>
         <div className="buttons-links">
           <span>Buttons and Links......</span>
-          <a className="btn1a" href="#">
+          <a className="btn1a" href="https://example.com">
             Book an appointment
           </a>
-          <button disabled className="btn1a">
+          <button disabled type="button" className="btn1a">
             Book an appointment
           </button>
         </div>
