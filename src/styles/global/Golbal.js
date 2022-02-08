@@ -19,12 +19,11 @@ ${SecondaryFonts};
 ${TertiaryFonts};
 
 :root {
-    --primary: #3B62A0;
-    --secondary: #00296A;
-    --tertiary: #D9C99E;
-    --accent: #11243E;
-    --shadow: #42454A;
-    --alt: #00296A;
+    --primary: #fff080;
+    --secondary: #244b5a;
+    --tertiary: #ffe100;
+    --accent: #636466;
+    --shadow: #bcbec0;
     --greybrown: #707070;
     --brown: #454545;
     --black: #090b10;
@@ -94,7 +93,6 @@ h5 {
 
 h6 {
   ${fontSizer(1.8, 2.2, 76.8, 120)}
-  font-family: ${theme.fontTertiary};
 }
 
 p {

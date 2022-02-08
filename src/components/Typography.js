@@ -23,6 +23,7 @@ import {
   B3Black,
   B3White,
   B3Blue,
+  Btn1Blue,
 } from "../styles/helpers"
 
 const Typography = () => {
@@ -108,6 +109,15 @@ const Typography = () => {
             need help with how to cope as a parent? I can help with providing
             assessment and counselling to help put your life back on track.
           </p>
+        </div>
+        <div className="buttons-links">
+          <span>Buttons and Links......</span>
+          <a className="btn1a" href="#">
+            Book an appointment
+          </a>
+          <button disabled className="btn1a">
+            Book an appointment
+          </button>
         </div>
       </div>
     </SectionStyled>
@@ -202,6 +212,17 @@ const SectionStyled = styled.section`
     }
     .b3c {
       ${B3Blue};
+    }
+  }
+
+  .buttons-links {
+    width: 100%;
+    margin-top: 5rem;
+    margin-bottom: 15rem;
+
+    .btn1a {
+      ${Btn1Blue};
+      margin: 0 2rem;
     }
   }
 `
