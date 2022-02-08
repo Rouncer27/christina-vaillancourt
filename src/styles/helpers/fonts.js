@@ -2,7 +2,7 @@ import themeFonts from "../theme/ThemeFonts"
 
 export const fontPrimary = themeFonts.fontPrimary
 export const fontSecondary = themeFonts.fontSecondary
-export const fontTert = themeFonts.fontTert
+export const fontTertiary = themeFonts.fontTertiary
 export const fontAwesome = themeFonts.fontAwesome
 
 export const fontSizer = (
@@ -31,7 +31,7 @@ export const fontSizer = (
 const fonts = {
   fontPrimary,
   fontSecondary,
-  fontTert,
+  fontTertiary,
   fontAwesome,
 }
 
