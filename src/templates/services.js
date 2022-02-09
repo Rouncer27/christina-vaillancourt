@@ -8,6 +8,7 @@ import Hero from "../components/templates/services/Hero"
 import Growth from "../components/templates/services/Growth"
 import ServicesList from "../components/templates/services/ServicesList"
 import Divider from "../components/templates/services/Divider"
+import HowItWorks from "../components/templates/services/HowItWorks"
 
 const Services = props => {
   const { hero, seoInfo } = props.data
@@ -15,6 +16,7 @@ const Services = props => {
   const growth = props.data.growth.template.servicesTemplate
   const services = props.data.services.template.servicesTemplate
   const divider = props.data.divider.template.servicesTemplate
+  const howItWorks = props.data.howItWorks.template.servicesTemplate
 
   return (
     <Layout>
@@ -28,6 +30,7 @@ const Services = props => {
       <Growth data={growth} />
       <ServicesList data={services} />
       <Divider data={divider} />
+      <HowItWorks data={howItWorks} />
     </Layout>
   )
 }
@@ -139,6 +142,19 @@ export const servicesTempQuery = graphql`
                   gatsbyImageData(width: 2000)
                 }
               }
+            }
+          }
+        }
+      }
+    }
+
+    howItWorks: wpPage(id: { eq: $id }) {
+      template {
+        ... on WpTemplate_Services {
+          servicesTemplate {
+            howItWorksTitle
+            howItWorksSteps {
+              content
             }
           }
         }
