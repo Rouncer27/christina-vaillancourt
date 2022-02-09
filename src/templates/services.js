@@ -6,13 +6,15 @@ import Seo from "../components/Seo"
 
 import Hero from "../components/templates/services/Hero"
 import Growth from "../components/templates/services/Growth"
+import ServicesList from "../components/templates/services/ServicesList"
+import Divider from "../components/templates/services/Divider"
 
 const Services = props => {
   const { hero, seoInfo } = props.data
   const heroData = hero.template.servicesTemplate
   const growth = props.data.growth.template.servicesTemplate
-
-  console.log("HERO", heroData)
+  const services = props.data.services.template.servicesTemplate
+  const divider = props.data.divider.template.servicesTemplate
 
   return (
     <Layout>
@@ -24,6 +26,8 @@ const Services = props => {
       />
       <Hero data={heroData} />
       <Growth data={growth} />
+      <ServicesList data={services} />
+      <Divider data={divider} />
     </Layout>
   )
 }
@@ -72,6 +76,70 @@ export const servicesTempQuery = graphql`
           servicesTemplate {
             growthTitle
             growthContent
+          }
+        }
+      }
+    }
+
+    services: wpPage(id: { eq: $id }) {
+      template {
+        ... on WpTemplate_Services {
+          servicesTemplate {
+            servicesSectionTitle
+            services {
+              image {
+                altText
+                sourceUrl
+                localFile {
+                  url
+                  childImageSharp {
+                    gatsbyImageData(width: 1000)
+                  }
+                }
+              }
+              title
+            }
+          }
+        }
+      }
+    }
+
+    divider: wpPage(id: { eq: $id }) {
+      template {
+        ... on WpTemplate_Services {
+          servicesTemplate {
+            dividerImageOne {
+              altText
+              sourceUrl
+              localFile {
+                url
+                childImageSharp {
+                  gatsbyImageData(width: 1500)
+                }
+              }
+            }
+
+            dividerImageTwo {
+              altText
+              sourceUrl
+              localFile {
+                url
+                childImageSharp {
+                  gatsbyImageData(width: 1500)
+                }
+              }
+            }
+
+            dividerImageThree {
+              altText
+              sourceUrl
+              localFile {
+                url
+                childImageSharp {
+                  gatsbyImageData(width: 2000)
+                }
+              }
+            }
           }
         }
       }
