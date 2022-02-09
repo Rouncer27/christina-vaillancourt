@@ -38,6 +38,11 @@ const HowItWorks = ({ data }) => {
 }
 
 const SectionStyled = styled.section`
+  margin-top: 5rem;
+
+  @media (min-width: 768px) {
+    margin-top: 7.5rem;
+  }
   .wrapper {
     ${medWrapper};
   }

@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { medWrapper, colors, H2White, B2White } from "../../../styles/helpers"
 
 const Fees = ({ data }) => {
-  console.log(data)
   return (
     <SectionStyled>
       <div className="wrapper">
@@ -18,8 +17,13 @@ const Fees = ({ data }) => {
   )
 }
 const SectionStyled = styled.section`
+  margin-bottom: 5rem;
   padding: 2.5rem 0;
   background-color: ${colors.colorSecondary};
+
+  @media (min-width: 768px) {
+    margin-bottom: 8.5rem;
+  }
 
   .wrapper {
     ${medWrapper};
