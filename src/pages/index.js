@@ -5,11 +5,13 @@ import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import Hero from "../components/templates/home/Hero"
 import Welcome from "../components/templates/home/Welcome"
+import Quote from "../components/templates/home/Quote"
 
 const IndexPage = props => {
   const { hero, seoInfo } = props.data
   const heroData = hero.template.homeTemplate
   const welcome = props.data.welcome.template.homeTemplate
+  const quote = props.data.quote.template.homeTemplate
 
   return (
     <Layout>
@@ -21,6 +23,7 @@ const IndexPage = props => {
       />
       <Hero data={heroData} />
       <Welcome data={welcome} />
+      <Quote data={quote} />
     </Layout>
   )
 }
@@ -69,6 +72,18 @@ export const homeQuery = graphql`
             welcomeContent
             welcomeButtonText
             welcomeButtonSlug
+          }
+        }
+      }
+    }
+
+    quote: wpPage(slug: { eq: "home" }) {
+      template {
+        ... on WpTemplate_Home {
+          homeTemplate {
+            quoteTitle
+            quoteContent
+            quoteAuthor
           }
         }
       }
