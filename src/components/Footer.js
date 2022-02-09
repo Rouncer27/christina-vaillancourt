@@ -109,6 +109,8 @@ const FooterStyled = styled.footer`
   .wrapper {
     ${medWrapper};
     align-items: flex-start;
+    padding-top: 4rem;
+    border-top: 0.3rem solid ${colors.colorPrimary};
   }
 
   .footer-logo {

@@ -6,6 +6,7 @@ import fonts from "./fonts"
 // Body copy ONE //
 export const B1Base = css`
   ${fontSizer(1.6, 2, 76.8, 150, 1.8)};
+  font-family: ${fonts.fontPrimary};
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -31,6 +32,7 @@ export const B1Blue = css`
 // Body copy TWO //
 export const B2Base = css`
   ${fontSizer(1.4, 1.6, 76.8, 150, 1.8)};
+  font-family: ${fonts.fontPrimary};
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

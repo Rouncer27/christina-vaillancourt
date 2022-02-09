@@ -6,12 +6,14 @@ import Seo from "../components/Seo"
 import Hero from "../components/templates/home/Hero"
 import Welcome from "../components/templates/home/Welcome"
 import Quote from "../components/templates/home/Quote"
+import ServicesList from "../components/templates/home/ServicesList"
 
 const IndexPage = props => {
   const { hero, seoInfo } = props.data
   const heroData = hero.template.homeTemplate
   const welcome = props.data.welcome.template.homeTemplate
   const quote = props.data.quote.template.homeTemplate
+  const services = props.data.services.template.homeTemplate
 
   return (
     <Layout>
@@ -24,6 +26,7 @@ const IndexPage = props => {
       <Hero data={heroData} />
       <Welcome data={welcome} />
       <Quote data={quote} />
+      <ServicesList data={services} />
     </Layout>
   )
 }
@@ -84,6 +87,30 @@ export const homeQuery = graphql`
             quoteTitle
             quoteContent
             quoteAuthor
+          }
+        }
+      }
+    }
+
+    services: wpPage(slug: { eq: "home" }) {
+      template {
+        ... on WpTemplate_Home {
+          homeTemplate {
+            servicesSectionTitle
+            services {
+              image {
+                altText
+                sourceUrl
+                localFile {
+                  url
+                  childImageSharp {
+                    gatsbyImageData(width: 1000)
+                  }
+                }
+              }
+              title
+              slug
+            }
           }
         }
       }
