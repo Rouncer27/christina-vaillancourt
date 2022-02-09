@@ -9,6 +9,8 @@ import Growth from "../components/templates/services/Growth"
 import ServicesList from "../components/templates/services/ServicesList"
 import Divider from "../components/templates/services/Divider"
 import HowItWorks from "../components/templates/services/HowItWorks"
+import Appointment from "../components/templates/services/Appointment"
+import Fees from "../components/templates/services/Fees"
 
 const Services = props => {
   const { hero, seoInfo } = props.data
@@ -17,6 +19,8 @@ const Services = props => {
   const services = props.data.services.template.servicesTemplate
   const divider = props.data.divider.template.servicesTemplate
   const howItWorks = props.data.howItWorks.template.servicesTemplate
+  const appointment = props.data.appointment.template.servicesTemplate
+  const fees = props.data.fees.template.servicesTemplate
 
   return (
     <Layout>
@@ -31,6 +35,8 @@ const Services = props => {
       <ServicesList data={services} />
       <Divider data={divider} />
       <HowItWorks data={howItWorks} />
+      <Appointment data={appointment} />
+      <Fees data={fees} />
     </Layout>
   )
 }
@@ -156,6 +162,29 @@ export const servicesTempQuery = graphql`
             howItWorksSteps {
               content
             }
+          }
+        }
+      }
+    }
+
+    appointment: wpPage(id: { eq: $id }) {
+      template {
+        ... on WpTemplate_Services {
+          servicesTemplate {
+            bookAppointmentContent
+            bookAppointmentButtonText
+            bookAppointmentButtonSlug
+          }
+        }
+      }
+    }
+
+    fees: wpPage(id: { eq: $id }) {
+      template {
+        ... on WpTemplate_Services {
+          servicesTemplate {
+            feesTitle
+            feesContent
           }
         }
       }
