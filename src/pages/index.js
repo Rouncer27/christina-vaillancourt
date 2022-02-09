@@ -7,8 +7,6 @@ import Hero from "../components/templates/home/Hero"
 
 const IndexPage = props => {
   const { hero, seoInfo } = props.data
-
-  console.log(hero)
   const heroData = hero.template.homeTemplate
 
   return (
