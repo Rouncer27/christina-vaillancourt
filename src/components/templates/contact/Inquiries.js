@@ -49,7 +49,7 @@ const Inquiries = ({ data }) => {
       bodyFormData.append(field[0], field[1])
     })
 
-    const response = await submitToServer(643, bodyFormData)
+    const response = await submitToServer(data.bookingFormId, bodyFormData)
 
     if (!response.errors) {
       setFormStatus({
