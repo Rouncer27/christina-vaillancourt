@@ -75,7 +75,7 @@ const MeetYou = ({ data }) => {
             />
           </div>
           <div className="image">
-            <a target="_blank" target="_blank" href={googleMapLink}>
+            <a target="_blank" rel="noreferrer" href={googleMapLink}>
               <GatsbyImage
                 image={imageDisplay}
                 alt={imageAlt}
@@ -163,6 +163,7 @@ const SectionStyled = styled.section`
       }
 
       .street-address {
+        padding-left: 4rem;
         p {
           font-weight: bold;
         }
