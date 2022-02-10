@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const submitToWebServer = async (formID, data) => {
-  const FORM_POST_URL = `http://vaillancourt.swbdatabases2.ca/wp-json/contact-form-7/v1/contact-forms/${formID}/feedback`
+  const FORM_POST_URL = `${process.env.GATSBY_API_URL}/${formID}/feedback`
   const config = { headers: { "Content-Type": "multipart/form-data" } }
   const serverResponse = await axios.post(FORM_POST_URL, data, config)
 
