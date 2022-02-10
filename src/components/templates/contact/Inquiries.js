@@ -17,8 +17,8 @@ import logo from "../../../images/background-logo.png"
 const Inquiries = ({ data }) => {
   console.log("Inquiries", data)
   const [formData, setFormData] = useState({
-    firstName: "",
-    email: "",
+    yourName: "",
+    yourEmail: "",
     phone: "",
     message: "",
   })
@@ -89,8 +89,8 @@ const Inquiries = ({ data }) => {
     })
 
     setFormData({
-      firstName: "",
-      email: "",
+      yourName: "",
+      yourEmail: "",
       phone: "",
       message: "",
     })
@@ -110,22 +110,22 @@ const Inquiries = ({ data }) => {
           <form onSubmit={handleOnSubmit}>
             <div className="form-left">
               <InputField>
-                <label htmlFor="firstName">
+                <label htmlFor="yourName">
                   Name <span className="required">&#42;</span>
                   <span
                     className={`error-message ${
                       formStatus.errors.findIndex(
-                        error => error.idref === "firstName"
+                        error => error.idref === "yourName"
                       ) !== -1 && " error-active"
                     }`}
                   >
                     You must input a name.
                   </span>
                   <input
-                    name="firstName"
+                    name="yourName"
                     type="text"
-                    value={formData.firstName}
-                    id="firstName"
+                    value={formData.yourName}
+                    id="yourName"
                     onChange={handleOnChange}
                     aria-required="true"
                     required
@@ -133,22 +133,22 @@ const Inquiries = ({ data }) => {
                 </label>
               </InputField>
               <InputField>
-                <label htmlFor="email">
+                <label htmlFor="yourEmail">
                   Email <span className="required">&#42;</span>
                   <span
                     className={`error-message ${
                       formStatus.errors.findIndex(
-                        error => error.idref === "email"
+                        error => error.idref === "yourEmail"
                       ) !== -1 && " error-active"
                     }`}
                   >
                     You must input a email.
                   </span>
                   <input
-                    name="email"
+                    name="yourEmail"
                     type="email"
-                    value={formData.email}
-                    id="email"
+                    value={formData.yourEmail}
+                    id="yourEmail"
                     onChange={handleOnChange}
                     aria-required="true"
                     required

@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { colors, H1Blue } from "../../../styles/helpers"
+import { colors, B1Blue } from "../../../styles/helpers"
 import { HashLoader } from "react-spinners"
 
 const FormSubmitModal = styled.div`
@@ -31,7 +31,7 @@ const FormSubmitModal = styled.div`
     width: 100%;
     margin: 0 auto;
     padding: 4rem;
-    background-color: ${colors.colorPrimary};
+    background-color: ${colors.colorSecondary};
     opacity: 0.95;
     border-radius: 0.75rem;
     box-shadow: 8px 9px 19px 0 rgba(0, 0, 0, 0.49);
@@ -68,7 +68,7 @@ const FormSubmitModal = styled.div`
       }
 
       h2 {
-        ${H1Blue};
+        ${B1Blue};
         width: 100%;
         color: ${colors.white};
         text-align: center;
