@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const Divider = ({ data }) => {
-  console.log("Divider: ", data)
   const imageOneDisplay = getImage(
     data.dividerImageOne.localFile.childImageSharp.gatsbyImageData
   )
