@@ -48,11 +48,15 @@ const DisplayPosts = ({ data }) => {
         <div className="posts">
           {posts.map((post, index) => {
             const reverse = index % 2 !== 0
-            const options = { year: "numeric", month: "long", day: "numeric" }
-            const postDate = new Date(post.node.date).toLocaleDateString(
+            {
+              /* const options = { year: "numeric", month: "long", day: "numeric" } */
+            }
+            {
+              /* const postDate = new Date(post.node.date).toLocaleDateString(
               undefined,
               options
-            )
+            ) */
+            }
             const imageDisplay = getImage(
               post.node.postTypePosts.featuredImage.localFile.childImageSharp
                 .gatsbyImageData

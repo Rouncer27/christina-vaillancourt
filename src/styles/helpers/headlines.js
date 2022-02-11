@@ -7,7 +7,7 @@ import fonts from "./fonts"
 export const H1Base = css`
   ${fontSizer(6, 10, 76.8, 150, 5)};
   font-family: ${fonts.fontSecondary};
-  font-weight: 900;
+  font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
@@ -33,7 +33,7 @@ export const H1Blue = css`
 export const H2Base = css`
   ${fontSizer(4, 7.5, 76.8, 150, 3)};
   font-family: ${fonts.fontSecondary};
-  font-weight: 900;
+  font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.2;
