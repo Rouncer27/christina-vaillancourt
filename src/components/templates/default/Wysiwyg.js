@@ -26,8 +26,7 @@ const Wysiwyg = ({ title, content }) => {
 }
 
 const WysiwygStyled = styled.div`
-  margin-top: 10rem;
-
+  margin-top: 5rem;
   .wrapper {
     ${standardWrapper};
   }
@@ -37,6 +36,7 @@ const WysiwygStyled = styled.div`
 
     h1 {
       ${H1Blue};
+      margin: 0;
     }
   }
 
