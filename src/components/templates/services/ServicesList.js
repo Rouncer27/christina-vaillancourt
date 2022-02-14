@@ -1,9 +1,21 @@
-import React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import React, { useState } from "react"
 import styled from "styled-components"
-import { B1Blue, H2Blue, medWrapper } from "../../../styles/helpers"
+import {
+  B2Blue,
+  H2Blue,
+  H4Blue,
+  medWrapper,
+  colors,
+} from "../../../styles/helpers"
+
+import ServiceListItem from "./ServiceListItem"
+import compass from "../../../images/icon-compass.png"
 
 const ServicesList = ({ data }) => {
+  const [isActive, setIsActive] = useState(null)
+
+  console.log("isActive", isActive)
+
   return (
     <SectionStyled>
       <div className="wrapper">
@@ -13,26 +25,33 @@ const ServicesList = ({ data }) => {
         {data.services && data.services.length > 0 ? (
           <div className="services">
             {data.services.map((service, index) => {
-              const imageDisplay = getImage(
-                service.image.localFile.childImageSharp.gatsbyImageData
-              )
-              const imageAlt = service.image.altText
               return (
-                <ServiceItem key={index}>
-                  <div className="service-image">
-                    <GatsbyImage
-                      image={imageDisplay}
-                      alt={imageAlt}
-                      layout="fullWidth"
-                      formats={["auto", "webp", "avif"]}
-                    />
-                  </div>
-                  <div className="service-title">
-                    <h3>{service.title}</h3>
-                  </div>
-                </ServiceItem>
+                <ServiceListItem
+                  key={index}
+                  listactive={index === isActive}
+                  service={service}
+                  handleOnCLick={() => setIsActive(index)}
+                />
               )
             })}
+          </div>
+        ) : null}
+
+        {isActive !== null ? (
+          <div className="service-content">
+            <div className="service-content__icon">
+              <img src={compass} alt={data.services[isActive].title} />
+            </div>
+            <div className="service-content__paragraph">
+              <div>
+                <h3>{data.services[isActive].title}</h3>
+              </div>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: data.services[isActive].content,
+                }}
+              />
+            </div>
           </div>
         ) : null}
       </div>
@@ -67,47 +86,58 @@ const SectionStyled = styled.section`
     }
   }
 
+  .service-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 5rem auto 2rem;
+
+    @media (min-width: 768px) {
+      margin: 7.5rem auto 2rem;
+    }
+
+    @media (min-width: 1025px) {
+      margin: 10rem auto 2rem;
+    }
+
+    &__icon {
+      width: 100%;
+
+      @media (min-width: 768px) {
+        width: calc(25% - 4rem);
+        margin-right: 4rem;
+        padding-right: 4rem;
+        border-right: 0.3rem solid ${colors.colorPrimary};
+      }
+
+      img {
+        width: 15rem;
+      }
+    }
+
+    &__paragraph {
+      width: 100%;
+
+      @media (min-width: 768px) {
+        width: calc(75%);
+      }
+
+      h3 {
+        ${H4Blue};
+      }
+
+      p {
+        ${B2Blue};
+      }
+    }
+  }
+
   .services {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-  }
-`
-
-const ServiceItem = styled.div`
-  width: calc(100% - 4rem);
-  margin: 2rem;
-
-  @media (min-width: 768px) {
-    width: calc((100% / 2) - 4rem);
-    margin: 1rem 2rem;
-  }
-
-  @media (min-width: 1025px) {
-    width: calc((100% / 4) - 4rem);
-    margin: 1rem 2rem;
-  }
-
-  .service-image {
-    padding: 1rem 10rem;
-
-    @media (min-width: 768px) {
-      padding: 1rem 5rem;
-    }
-    @media (min-width: 1025px) {
-      padding: 1rem;
-    }
-  }
-
-  .service-title {
-    width: 100%;
-    text-align: center;
-
-    h3 {
-      ${B1Blue};
-      font-weight: bold;
-    }
   }
 `
 

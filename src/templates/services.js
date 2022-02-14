@@ -107,6 +107,7 @@ export const servicesTempQuery = graphql`
                 }
               }
               title
+              content
             }
           }
         }
