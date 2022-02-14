@@ -77,6 +77,10 @@ export const contactTempQuery = graphql`
             howItWorksSteps {
               content
             }
+            popupTitle
+            popupContent
+            popupButtonText
+            popupButtonSlug
           }
         }
       }

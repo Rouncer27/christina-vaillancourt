@@ -13,9 +13,6 @@ import compass from "../../../images/icon-compass.png"
 
 const ServicesList = ({ data }) => {
   const [isActive, setIsActive] = useState(null)
-
-  console.log("isActive", isActive)
-
   return (
     <SectionStyled>
       <div className="wrapper">

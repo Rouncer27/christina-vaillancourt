@@ -1,12 +1,21 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
-import { B2Blue, H2Blue, medWrapper } from "../../../styles/helpers"
+import {
+  B2Blue,
+  B2White,
+  Btn1Blue,
+  colors,
+  H2Blue,
+  H2White,
+  medWrapper,
+} from "../../../styles/helpers"
 
 import stepOne from "../../../images/step-1.png"
 import stepTwo from "../../../images/step-2.png"
 import stepThree from "../../../images/step-3.png"
 
 const HowItWorks = ({ data }) => {
+  const [popupActive, setPopupActive] = useState(false)
   return (
     <SectionStyled>
       <div className="wrapper">
@@ -32,7 +41,48 @@ const HowItWorks = ({ data }) => {
             )
           })}
         </div>
+        <div className="popup-btn">
+          <button
+            type="button"
+            onClick={() => {
+              setPopupActive(true)
+            }}
+          >
+            Fee Information
+          </button>
+        </div>
       </div>
+      {popupActive && (
+        <div
+          onClick={() => {
+            setPopupActive(false)
+          }}
+          className="popup-modal"
+        >
+          <div className="popup-modal__inner">
+            <div className="popup-modal__inner--wrapper">
+              <div className="popup-modal__inner--title">
+                <h3>{data.popupTitle}</h3>
+              </div>
+              <div
+                className="popup-modal__inner--content"
+                dangerouslySetInnerHTML={{ __html: data.popupContent }}
+              />
+              <div className="popup-modal__button">
+                <button
+                  onClick={() => {
+                    setPopupActive(false)
+                  }}
+                >
+                  &#10005;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="popup-modal__background" />
+        </div>
+      )}
     </SectionStyled>
   )
 }
@@ -67,6 +117,115 @@ const SectionStyled = styled.section`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .popup-btn {
+    width: 100%;
+    margin: 7.5rem auto;
+    text-align: center;
+
+    button {
+      ${Btn1Blue};
+    }
+  }
+
+  .popup-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999999;
+    overflow: scroll;
+
+    &__inner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      transform: translate(-50%, -50%);
+      background-color: ${colors.colorSecondary};
+      z-index: 9999;
+
+      &--wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        position: relative;
+        max-width: 120rem;
+        margin: 2rem auto;
+        padding: 5rem 2rem;
+
+        @media (min-width: 768px) {
+          padding: 5rem 2rem;
+        }
+
+        @media (min-width: 1025px) {
+          padding: 7.5rem 2rem;
+        }
+      }
+
+      &--title {
+        width: 100%;
+
+        @media (min-width: 768px) {
+          width: calc(40%);
+          padding-right: 4rem;
+          border-right: 0.3rem solid ${colors.white};
+        }
+
+        h3 {
+          ${H2White};
+
+          @media (min-width: 768px) {
+            text-align: right;
+          }
+        }
+      }
+
+      &--content {
+        width: 100%;
+
+        @media (min-width: 768px) {
+          width: calc(60%);
+          padding-left: 4rem;
+        }
+
+        p {
+          ${B2White};
+        }
+      }
+    }
+
+    &__button {
+      position: absolute;
+      top: 0;
+      right: 5rem;
+
+      button {
+        color: ${colors.white};
+        transition: all 0.3s ease-out;
+        border: none;
+        background-color: transparent;
+        font-weight: bold;
+        font-size: 3.2rem;
+        cursor: pointer;
+
+        &:hover {
+          color: ${colors.colorPrimary};
+        }
+      }
+    }
+
+    &__background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.4);
+      z-index: 999;
+    }
   }
 `
 
