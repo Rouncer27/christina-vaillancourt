@@ -113,6 +113,11 @@ const SectionStyled = styled.section`
 
       img {
         width: 15rem;
+        margin-left: 0;
+
+        @media (min-width: 768px) {
+          margin: 0 auto;
+        }
       }
     }
 

@@ -11,12 +11,14 @@ const ServiceListItem = ({ listactive, handleOnCLick, service }) => {
   return (
     <ServiceItem active={listactive} onClick={handleOnCLick}>
       <div className="service-image">
-        <GatsbyImage
-          image={imageDisplay}
-          alt={imageAlt}
-          layout="fullWidth"
-          formats={["auto", "webp", "avif"]}
-        />
+        <div className="service-image__wrapper">
+          <GatsbyImage
+            image={imageDisplay}
+            alt={imageAlt}
+            layout="fullWidth"
+            formats={["auto", "webp", "avif"]}
+          />
+        </div>
       </div>
       <div className="service-title">
         <h3>{service.title}</h3>
@@ -42,16 +44,18 @@ const ServiceItem = styled.div`
 
   .service-image {
     padding: 1rem 10rem;
-    border-radius: 50%;
-    box-shadow: ${props =>
-      props.active ? `0rem 0rem 0 0.5rem ${colors.colorPrimary}` : "none"};
-    overflow: hidden;
 
     @media (min-width: 768px) {
-      padding: 1rem 5rem;
+      padding: 1rem 10rem;
     }
     @media (min-width: 1025px) {
       padding: 1rem;
+    }
+
+    &__wrapper {
+      border-radius: 50%;
+      box-shadow: ${props =>
+        props.active ? `0rem 0rem 0 0.5rem ${colors.colorPrimary}` : `none`};
     }
   }
 
