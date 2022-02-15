@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
-import { B1Blue, H2Blue, medWrapper } from "../../../styles/helpers"
+import { B1Blue, H2Blue, medWrapper, colors } from "../../../styles/helpers"
 
 const ServicesList = ({ data }) => {
   return (
@@ -21,12 +21,14 @@ const ServicesList = ({ data }) => {
               return (
                 <ServiceItem key={index} to={`/${service.slug}`}>
                   <div className="service-image">
-                    <GatsbyImage
-                      image={imageDisplay}
-                      alt={imageAlt}
-                      layout="fullWidth"
-                      formats={["auto", "webp", "avif"]}
-                    />
+                    <div className="service-image__wrapper">
+                      <GatsbyImage
+                        image={imageDisplay}
+                        alt={imageAlt}
+                        layout="fullWidth"
+                        formats={["auto", "webp", "avif"]}
+                      />
+                    </div>
                   </div>
                   <div className="service-title">
                     <h3>{service.title}</h3>
@@ -90,6 +92,17 @@ const ServiceItem = styled(Link)`
     margin: 1rem 2rem;
   }
 
+  &:hover {
+    .service-image__wrapper {
+      box-shadow: 0rem 0rem 0 0.5rem ${colors.colorPrimary};
+    }
+    .service-title {
+      h3 {
+        border-bottom: 0.5rem solid ${colors.colorPrimary};
+      }
+    }
+  }
+
   .service-image {
     padding: 1rem 10rem;
 
@@ -99,6 +112,11 @@ const ServiceItem = styled(Link)`
     @media (min-width: 1025px) {
       padding: 1rem;
     }
+
+    &__wrapper {
+      transition: all 0.3s ease;
+      border-radius: 50%;
+    }
   }
 
   .service-title {
@@ -107,6 +125,8 @@ const ServiceItem = styled(Link)`
 
     h3 {
       ${B1Blue};
+      transition: all 0.3s ease;
+      border-bottom: 0.5rem solid transparent;
       font-weight: bold;
     }
   }

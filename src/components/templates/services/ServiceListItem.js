@@ -29,7 +29,7 @@ const ServiceListItem = ({ listactive, handleOnCLick, service }) => {
 
 const ServiceItem = styled.div`
   width: calc(100% - 4rem);
-  margin: 2rem;
+  margin: 0 auto;
   cursor: pointer;
 
   @media (min-width: 768px) {
@@ -42,10 +42,20 @@ const ServiceItem = styled.div`
     margin: 1rem 2rem;
   }
 
+  &:hover {
+    .service-title {
+      h3 {
+        border-bottom: 0.5rem solid ${colors.colorPrimary};
+      }
+    }
+  }
+
   .service-image {
+    display: none;
     padding: 1rem 10rem;
 
     @media (min-width: 768px) {
+      display: block;
       padding: 1rem 10rem;
     }
     @media (min-width: 1025px) {
@@ -65,6 +75,11 @@ const ServiceItem = styled.div`
 
     h3 {
       ${B1Blue};
+      transition: all 0.3s ease;
+      border-bottom: ${props =>
+        props.active
+          ? `0.5rem solid ${colors.colorPrimary}`
+          : `0.5rem solid transparent`};
       font-weight: bold;
     }
   }

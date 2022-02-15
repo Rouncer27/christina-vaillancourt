@@ -12,7 +12,7 @@ import ServiceListItem from "./ServiceListItem"
 import compass from "../../../images/icon-compass.png"
 
 const ServicesList = ({ data }) => {
-  const [isActive, setIsActive] = useState(null)
+  const [isActive, setIsActive] = useState(0)
   return (
     <SectionStyled>
       <div className="wrapper">

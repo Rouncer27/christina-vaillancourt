@@ -29,7 +29,7 @@ const Contact = props => {
       <HowItWorks data={howItWorks} />
       <Inquiries data={inquiries} />
       <MeetYou data={niceMeet} />
-      <Divider data={divider} />
+      {/* <Divider data={divider} /> */}
     </Layout>
   )
 }
