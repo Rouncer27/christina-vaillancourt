@@ -1,14 +1,58 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { B1Blue, H2Blue, medWrapper, colors } from "../../../styles/helpers"
 
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
+
 const ServicesList = ({ data }) => {
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#services-trigger",
+          markers: false,
+          start: "top 35%",
+          toggleActions: "play none none none",
+        },
+      })
+      .fromTo(
+        ".services-title",
+        {
+          autoAlpha: 0,
+          x: -150,
+          duration: 1,
+        },
+        {
+          autoAlpha: 1,
+          x: 0,
+          duration: 1,
+        }
+      )
+      .fromTo(
+        ".service-item",
+        {
+          autoAlpha: 0,
+          y: 100,
+          duration: 2,
+        },
+        {
+          autoAlpha: 1,
+          y: 0,
+          stagger: {
+            each: 0.4,
+          },
+        }
+      )
+  }, [])
+
   return (
     <SectionStyled>
-      <div className="wrapper">
-        <div className="title">
+      <div id="services-trigger" className="wrapper">
+        <div className="title services-title">
           <h2>{data.servicesSectionTitle}</h2>
         </div>
         {data.services && data.services.length > 0 ? (
@@ -19,20 +63,22 @@ const ServicesList = ({ data }) => {
               )
               const imageAlt = service.image.altText
               return (
-                <ServiceItem key={index} to={`/${service.slug}`}>
-                  <div className="service-image">
-                    <div className="service-image__wrapper">
-                      <GatsbyImage
-                        image={imageDisplay}
-                        alt={imageAlt}
-                        layout="fullWidth"
-                        formats={["auto", "webp", "avif"]}
-                      />
+                <ServiceItem className="service-item" key={index}>
+                  <Link to={`/${service.slug}`}>
+                    <div className="service-image">
+                      <div className="service-image__wrapper">
+                        <GatsbyImage
+                          image={imageDisplay}
+                          alt={imageAlt}
+                          layout="fullWidth"
+                          formats={["auto", "webp", "avif"]}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="service-title">
-                    <h3>{service.title}</h3>
-                  </div>
+                    <div className="service-title">
+                      <h3>{service.title}</h3>
+                    </div>
+                  </Link>
                 </ServiceItem>
               )
             })}
@@ -78,7 +124,8 @@ const SectionStyled = styled.section`
   }
 `
 
-const ServiceItem = styled(Link)`
+const ServiceItem = styled.div`
+  display: block;
   width: calc(100% - 4rem);
   margin: 2rem;
 

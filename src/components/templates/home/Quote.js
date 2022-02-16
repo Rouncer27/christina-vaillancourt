@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import {
   B1Blue,
@@ -8,9 +8,53 @@ import {
   colors,
 } from "../../../styles/helpers"
 
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
+
 const Quote = ({ data }) => {
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: `#quote-trigger`,
+          markers: false,
+          start: "top 40%",
+          toggleActions: "play none none none",
+        },
+      })
+      .add("start")
+      .fromTo(
+        `.quote`,
+        {
+          autoAlpha: 0,
+          x: -100,
+        },
+        {
+          autoAlpha: 1,
+          ease: "power2.out",
+          x: 0,
+          duration: 1.5,
+        }
+      )
+
+      .fromTo(
+        `.quoteTitle`,
+        {
+          autoAlpha: 0,
+          x: 100,
+        },
+        {
+          autoAlpha: 1,
+          ease: "power2.out",
+          x: 0,
+          duration: 1,
+        },
+        "start+=0.3"
+      )
+  }, [])
   return (
-    <SectionStyled>
+    <SectionStyled id="quote-trigger">
       <div className="wrapper">
         <div className="quote">
           <p className="quote__content">{data.quoteContent}</p>

@@ -8,7 +8,7 @@ import Hero from "../components/templates/contact/Hero"
 import HowItWorks from "../components/templates/contact/HowItWorks"
 import Inquiries from "../components/templates/contact/Inquiries"
 import MeetYou from "../components/templates/contact/MeetYou"
-import Divider from "../components/templates/contact/Divider"
+// import Divider from "../components/templates/contact/Divider"
 
 const Contact = props => {
   const { hero, seoInfo } = props.data
@@ -16,7 +16,7 @@ const Contact = props => {
   const howItWorks = props.data.howItWorks.template.contactTemplate
   const inquiries = props.data.inquiries.template.contactTemplate
   const niceMeet = props.data.niceMeet.template.contactTemplate
-  const divider = props.data.divider.template.contactTemplate
+  // const divider = props.data.divider.template.contactTemplate
   return (
     <Layout>
       <Seo

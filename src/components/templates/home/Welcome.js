@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import {
@@ -8,17 +8,75 @@ import {
   Btn1Blue,
   colors,
 } from "../../../styles/helpers"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const Welcome = ({ data }) => {
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: `#welcome-trigger`,
+          markers: false,
+          start: "top 40%",
+          toggleActions: "play none none none",
+        },
+      })
+      .add("start")
+      .fromTo(
+        `.welcome-title`,
+        {
+          autoAlpha: 0,
+          y: 100,
+        },
+        {
+          autoAlpha: 1,
+          ease: "power2.out",
+          y: 0,
+          duration: 1.5,
+        }
+      )
+
+      .fromTo(
+        `.welcome-content`,
+        {
+          autoAlpha: 0,
+          y: 100,
+        },
+        {
+          autoAlpha: 1,
+          ease: "power2.out",
+          y: 0,
+          duration: 1,
+        },
+        "start+=0.3"
+      )
+
+      .fromTo(
+        `.welcome-button`,
+        {
+          autoAlpha: 0,
+          x: 100,
+        },
+        {
+          autoAlpha: 1,
+          ease: "power2.out",
+          x: 0,
+          duration: 1.5,
+        },
+        "start+=0.75"
+      )
+  }, [])
   return (
-    <SectionStyled>
+    <SectionStyled id="welcome-trigger">
       <div className="wrapper">
-        <div className="title">
+        <div className="title welcome-title">
           <h2>{data.welcomeTitle}</h2>
         </div>
-        <div className="content">
+        <div className="content welcome-content">
           <div dangerouslySetInnerHTML={{ __html: data.welcomeContent }} />
-          <div>
+          <div className="welcome-button">
             <Link to={`/${data.welcomeButtonSlug}`}>
               {data.welcomeButtonText}
             </Link>
