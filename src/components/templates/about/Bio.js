@@ -23,7 +23,7 @@ const Bio = ({ data }) => {
         scrollTrigger: {
           trigger: `#bio-trigger`,
           markers: false,
-          start: "top 40%",
+          start: "top 50%",
           toggleActions: "play none none none",
         },
       })

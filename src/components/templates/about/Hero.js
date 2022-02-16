@@ -12,8 +12,8 @@ const Hero = ({ data }) => {
       <div className="hero-content">
         <div className="hero-content__main">
           <h2>
-            <span className="title-bottom">{data.titleLarge}</span>
-            <span className="title-top">{data.titleSmall}</span>{" "}
+            <span className="title-top">{data.titleLarge}</span>
+            <span className="title-bottom">{data.titleSmall}</span>{" "}
           </h2>
         </div>
       </div>
@@ -77,10 +77,19 @@ const StyledSection = styled.section`
         }
 
         .title-top {
-          ${H3Blue};
+          ${H1Blue}
+          line-height: 0.75;
         }
         .title-bottom {
-          ${H1Blue}
+          ${H3Blue};
+          line-height: 0.75;
+
+          @media (min-width: 768px) {
+            padding-left: 5rem;
+          }
+          @media (min-width: 1025px) {
+            padding-left: 7.5rem;
+          }
         }
       }
     }
