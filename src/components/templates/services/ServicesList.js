@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import {
   B2Blue,
@@ -10,13 +10,40 @@ import {
 
 import ServiceListItem from "./ServiceListItem"
 import compass from "../../../images/icon-compass.png"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const ServicesList = ({ data }) => {
   const [isActive, setIsActive] = useState(0)
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#service-list-trigger",
+          markers: false,
+          start: "top 35%",
+          toggleActions: "play none none none",
+        },
+      })
+      .fromTo(
+        ".service-list-title",
+        {
+          autoAlpha: 0,
+          x: -150,
+          duration: 1,
+        },
+        {
+          autoAlpha: 1,
+          x: 0,
+          duration: 1,
+        }
+      )
+  }, [])
   return (
-    <SectionStyled>
+    <SectionStyled id="service-list-trigger">
       <div className="wrapper">
-        <div className="title">
+        <div className="title service-list-title">
           <h2>{data.servicesSectionTitle}</h2>
         </div>
         {data.services && data.services.length > 0 ? (

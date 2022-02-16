@@ -1,18 +1,62 @@
 import { Link } from "gatsby"
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { medWrapper, colors, B2Blue, Btn1Blue } from "../../../styles/helpers"
 
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
+
 const Appointment = ({ data }) => {
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: `#appointment-trigger`,
+          markers: false,
+          start: "top 40%",
+          toggleActions: "play none none none",
+        },
+      })
+      .add("start")
+      .fromTo(
+        `.appointment-link`,
+        {
+          autoAlpha: 0,
+          x: -100,
+        },
+        {
+          autoAlpha: 1,
+          ease: "power2.out",
+          x: 0,
+          duration: 1.5,
+        }
+      )
+
+      .fromTo(
+        `.appointment-content`,
+        {
+          autoAlpha: 0,
+          x: 100,
+        },
+        {
+          autoAlpha: 1,
+          ease: "power2.out",
+          x: 0,
+          duration: 1,
+        },
+        "start+=0.3"
+      )
+  }, [])
   return (
-    <SectionStyled>
+    <SectionStyled id="appointment-trigger">
       <div className="wrapper">
-        <div className="link">
+        <div className="link appointment-link">
           <Link to={`/${data.bookAppointmentButtonSlug}`}>
             {data.bookAppointmentButtonText}
           </Link>
         </div>
-        <div className="content">
+        <div className="content appointment-content">
           <div
             dangerouslySetInnerHTML={{ __html: data.bookAppointmentContent }}
           />

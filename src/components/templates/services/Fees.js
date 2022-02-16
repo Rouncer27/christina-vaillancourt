@@ -1,15 +1,58 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { medWrapper, colors, H2White, B2White } from "../../../styles/helpers"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const Fees = ({ data }) => {
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: `#fees-trigger`,
+          markers: false,
+          start: "top 40%",
+          toggleActions: "play none none none",
+        },
+      })
+      .add("start")
+      .fromTo(
+        `.fees-title`,
+        {
+          autoAlpha: 0,
+          x: -100,
+        },
+        {
+          autoAlpha: 1,
+          ease: "power2.out",
+          x: 0,
+          duration: 1.5,
+        }
+      )
+
+      .fromTo(
+        `.fees-content`,
+        {
+          autoAlpha: 0,
+          x: 100,
+        },
+        {
+          autoAlpha: 1,
+          ease: "power2.out",
+          x: 0,
+          duration: 1,
+        },
+        "start+=0.3"
+      )
+  }, [])
   return (
-    <SectionStyled>
+    <SectionStyled id="fees-trigger">
       <div className="wrapper">
-        <div className="title">
+        <div className="title fees-title">
           <h2>{data.feesTitle}</h2>
         </div>
-        <div className="content">
+        <div className="content fees-content">
           <div dangerouslySetInnerHTML={{ __html: data.feesContent }} />
         </div>
       </div>

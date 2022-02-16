@@ -1,15 +1,58 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { medWrapper, H2Blue, B2Blue, colors } from "../../../styles/helpers"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const Growth = ({ data }) => {
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: `#growth-trigger`,
+          markers: false,
+          start: "top 40%",
+          toggleActions: "play none none none",
+        },
+      })
+      .add("start")
+      .fromTo(
+        `.growth-title`,
+        {
+          autoAlpha: 0,
+          x: -100,
+        },
+        {
+          autoAlpha: 1,
+          ease: "power2.out",
+          x: 0,
+          duration: 1.5,
+        }
+      )
+
+      .fromTo(
+        `.growth-content`,
+        {
+          autoAlpha: 0,
+          x: 100,
+        },
+        {
+          autoAlpha: 1,
+          ease: "power2.out",
+          x: 0,
+          duration: 1,
+        },
+        "start+=0.3"
+      )
+  }, [])
   return (
-    <SectionStyled>
+    <SectionStyled id="growth-trigger">
       <div className="wrapper">
-        <div className="title">
+        <div className="title growth-title">
           <h2>{data.growthTitle}</h2>
         </div>
-        <div className="content">
+        <div className="content growth-content">
           <div dangerouslySetInnerHTML={{ __html: data.growthContent }} />
         </div>
       </div>
