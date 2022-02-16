@@ -1,12 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import {
-  colors,
-  H1Blue,
-  H1White,
-  H3Blue,
-  H3White,
-} from "../../../styles/helpers"
+import { colors, H1White, H3White } from "../../../styles/helpers"
 
 import HeroImage from "../common/HeroImage"
 

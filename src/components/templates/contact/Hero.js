@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { H1Blue, H3Blue } from "../../../styles/helpers"
+import { H1White, H3White, colors } from "../../../styles/helpers"
 
 import HeroImage from "../common/HeroImage"
 
@@ -64,8 +64,8 @@ const StyledSection = styled.section`
     &__main {
       @media (min-width: 768px) {
         position: absolute;
-        top: 25%;
-        left: 5%;
+        bottom: 5rem;
+        right: 5%;
         margin-bottom: 0;
       }
 
@@ -77,10 +77,35 @@ const StyledSection = styled.section`
         }
 
         .title-top {
-          ${H3Blue};
+          ${H3White};
+
+          @media (min-width: 768px) {
+            padding-left: 4rem;
+            line-height: 0.5;
+          }
+
+          @media (min-width: 1025px) {
+            padding-left: 6rem;
+          }
         }
         .title-bottom {
-          ${H1Blue}
+          ${H1White}
+
+          @media (min-width: 768px) {
+            line-height: 0.6;
+          }
+
+          @media (min-width: 768px) {
+            &::after {
+              position: absolute;
+              bottom: -2rem;
+              left: 0rem;
+              width: 150%;
+              height: 0.2rem;
+              background-color: ${colors.white};
+              content: "";
+            }
+          }
         }
       }
     }
