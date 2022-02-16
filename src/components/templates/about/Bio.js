@@ -1,5 +1,5 @@
 import { Link } from "gatsby"
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import {
@@ -8,16 +8,59 @@ import {
   colors,
   standardWrapper,
 } from "../../../styles/helpers"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const Bio = ({ data }) => {
   const imageDisplay = getImage(
     data.aboutBioImage.localFile.childImageSharp.gatsbyImageData
   )
   const imageAlt = data.aboutBioImage.altText
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: `#bio-trigger`,
+          markers: false,
+          start: "top 40%",
+          toggleActions: "play none none none",
+        },
+      })
+      .add("start")
+      .fromTo(
+        `.bio-content`,
+        {
+          autoAlpha: 0,
+          x: -100,
+        },
+        {
+          autoAlpha: 1,
+          ease: "power2.out",
+          x: 0,
+          duration: 1.5,
+        }
+      )
+
+      .fromTo(
+        `.bio-image`,
+        {
+          autoAlpha: 0,
+          y: 200,
+        },
+        {
+          autoAlpha: 1,
+          ease: "power2.out",
+          y: 0,
+          duration: 2,
+        },
+        "start+=0.3"
+      )
+  }, [])
   return (
-    <SectionStyled>
+    <SectionStyled id="bio-trigger">
       <div className="wrapper">
-        <div className="content">
+        <div className="content bio-content">
           <div dangerouslySetInnerHTML={{ __html: data.aboutBio }} />
           <div>
             <Link to={`/${data.aboutBioButtonSlug}`}>
@@ -25,7 +68,7 @@ const Bio = ({ data }) => {
             </Link>
           </div>
         </div>
-        <div className="image">
+        <div className="image bio-image">
           <div className="image__wrap">
             <GatsbyImage
               image={imageDisplay}
