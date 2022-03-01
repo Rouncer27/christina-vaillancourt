@@ -187,6 +187,11 @@ const PostStyled = styled(Link)`
     h2 {
       ${H2Blue};
     }
+
+    h3 {
+      ${B2Blue};
+      font-weight: bold;
+    }
   }
 
   .post-excerpt {
