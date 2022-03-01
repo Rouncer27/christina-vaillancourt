@@ -56,7 +56,7 @@ const DisplayPosts = ({ data }) => {
 
             return (
               <PostStyled
-                reverse={reverse}
+                reversepost={reverse}
                 to={`/blog/${post.node.slug}`}
                 key={post.node.id}
               >
@@ -114,7 +114,7 @@ const PostStyled = styled(Link)`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  flex-direction: ${props => (props.reverse ? "row-reverse" : "row")};
+  flex-direction: ${props => (props.reversepost ? "row-reverse" : "row")};
   width: 100%;
   margin-bottom: 5rem;
   padding: 2rem 5rem;
@@ -171,15 +171,15 @@ const PostStyled = styled(Link)`
 
     @media (min-width: 768px) {
       width: 65%;
-      padding-left: ${props => (props.reverse ? "0rem" : "7.5rem")};
-      padding-right: ${props => (props.reverse ? "7.5rem" : "0rem")};
+      padding-left: ${props => (props.reversepost ? "0rem" : "7.5rem")};
+      padding-right: ${props => (props.reversepost ? "7.5rem" : "0rem")};
     }
 
     @media (min-width: 1025px) {
       width: 75%;
-      max-width: 51.6rem;
-      padding-left: ${props => (props.reverse ? "0rem" : "7.5rem")};
-      padding-right: ${props => (props.reverse ? "7.5rem" : "0rem")};
+      max-width: 75rem;
+      padding-left: ${props => (props.reversepost ? "0rem" : "7.5rem")};
+      padding-right: ${props => (props.reversepost ? "7.5rem" : "0rem")};
     }
   }
 

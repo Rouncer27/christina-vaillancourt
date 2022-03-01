@@ -6,6 +6,7 @@ import Seo from "../components/Seo"
 
 import Hero from "../components/templates/services/Hero"
 import Growth from "../components/templates/services/Growth"
+import Double from "../components/templates/services/Double"
 import ServicesList from "../components/templates/services/ServicesList"
 import Divider from "../components/templates/services/Divider"
 import HowItWorks from "../components/templates/services/HowItWorks"
@@ -16,6 +17,7 @@ const Services = props => {
   const { hero, seoInfo } = props.data
   const heroData = hero.template.servicesTemplate
   const growth = props.data.growth.template.servicesTemplate
+  const double = props.data.double.template.servicesTemplate
   const services = props.data.services.template.servicesTemplate
   const divider = props.data.divider.template.servicesTemplate
   const howItWorks = props.data.howItWorks.template.servicesTemplate
@@ -32,6 +34,7 @@ const Services = props => {
       />
       <Hero data={heroData} />
       <Growth data={growth} />
+      <Double data={double} />
       <ServicesList data={services} />
       <Divider data={divider} />
       <HowItWorks data={howItWorks} />
@@ -85,6 +88,19 @@ export const servicesTempQuery = graphql`
           servicesTemplate {
             growthTitle
             growthContent
+          }
+        }
+      }
+    }
+
+    double: wpPage(id: { eq: $id }) {
+      template {
+        ... on WpTemplate_Services {
+          servicesTemplate {
+            doubleParagraphs {
+              title
+              content
+            }
           }
         }
       }

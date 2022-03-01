@@ -106,8 +106,17 @@ const SectionStyled = styled.section`
       border-left: 0.3rem solid ${colors.colorPrimary};
     }
 
-    p {
+    p,
+    a {
       ${B2Blue};
+    }
+
+    a {
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: ${colors.colorPrimary};
     }
   }
 `
