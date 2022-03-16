@@ -6,6 +6,8 @@ module.exports = {
     title: `Christina Vaillancourt`,
     description: `Christina Vaillancourt.`,
     author: `@switchback4ever`,
+    metaImg: `src/images/social-media-default.png`,
+    siteLogo: `src/images/christina-vaillancourt.png`,
     siteUrl: `https://www.christinavaillancourt.com/`,
   },
   plugins: [
