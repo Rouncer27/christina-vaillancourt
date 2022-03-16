@@ -64,9 +64,6 @@ export const servicesTempQuery = graphql`
           servicesTemplate {
             heroSideTitle
             heroSideSubTitle
-            heroList {
-              item
-            }
             heroImage {
               altText
               sourceUrl

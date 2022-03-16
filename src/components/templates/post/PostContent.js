@@ -224,14 +224,27 @@ const ArticleStyled = styled.article`
         ${B2Blue};
 
         a {
+          ${B2Blue};
           transition: all 0.3s;
-          color: ${colors.colorPrimary};
+          color: #636466;
           font-weight: bold;
           font-size: 1em;
 
           &:hover {
             color: ${colors.colorSecondary};
           }
+        }
+      }
+
+      a {
+        ${B2Blue};
+        transition: all 0.3s;
+        color: #636466;
+        font-weight: bold;
+        font-size: 1em;
+
+        &:hover {
+          color: ${colors.colorPrimary};
         }
       }
 

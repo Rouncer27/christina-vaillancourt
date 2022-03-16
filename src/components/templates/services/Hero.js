@@ -15,13 +15,6 @@ const Hero = ({ data }) => {
             <span className="title-side-top">{data.heroSideTitle}</span>{" "}
             <span className="title-side-bottom">{data.heroSideSubTitle}</span>
           </h2>
-          <div className="hero-content__items">
-            <ul>
-              {data.heroList.map((item, index) => {
-                return <li key={index}>{item.item}</li>
-              })}
-            </ul>
-          </div>
         </div>
       </div>
     </StyledSection>
@@ -40,7 +33,7 @@ const StyledSection = styled.section`
   }
 
   @media (min-width: 1025px) {
-    height: 60rem;
+    height: 50rem;
   }
 
   .hero-content {
@@ -71,20 +64,18 @@ const StyledSection = styled.section`
     &__main {
       @media (min-width: 768px) {
         position: absolute;
-        bottom: -2.5rem;
+        bottom: 0;
         right: 7.5%;
         margin-bottom: 2.5rem;
         transform-origin: center left;
-        transform: rotate(-90deg);
       }
 
       @media (min-width: 1025px) {
         position: absolute;
-        bottom: -2.5rem;
-        right: 5%;
+        right: 7.5%;
+        bottom: 5rem;
         margin-bottom: 0;
         transform-origin: center left;
-        transform: rotate(-90deg);
       }
 
       h2 {
