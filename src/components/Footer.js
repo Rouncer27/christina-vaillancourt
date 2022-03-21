@@ -47,7 +47,7 @@ const Footer = () => {
               <a href={`tel:1+${phoneNumber}`}>{phoneNumber}</a>
             </p>
           </div>
-          <div className="footer-contact__social">
+          {/* <div className="footer-contact__social">
             <p>Follow Me</p>
             <ul>
               <StyledIcon>
@@ -78,7 +78,7 @@ const Footer = () => {
                 </a>
               </StyledIcon>
             </ul>
-          </div>
+          </div> */}
         </div>
         <div className="footer-copy">
           <p>

@@ -25,7 +25,7 @@ export default React.memo(
         logo: logo,
         telephone: "(403) 999-9903",
         email: "info@christinavaillancourt.com",
-        sameAs: ["https://www.facebook.com/", "https://www.instagram.com/"],
+        sameAs: [],
         url: "https://www.christinavaillancourt.com/",
         image: image,
         priceRange: "$$",
