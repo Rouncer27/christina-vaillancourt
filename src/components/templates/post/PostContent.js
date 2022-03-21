@@ -12,7 +12,6 @@ import {
 } from "../../../styles/helpers"
 
 const PostContent = ({ data }) => {
-  console.log("PostContent", data)
   return (
     <ArticleStyled>
       <div className="wrapper">

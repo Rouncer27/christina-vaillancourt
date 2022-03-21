@@ -15,7 +15,6 @@ import FormErrors from "../../FormParts/formModals/FormErrors"
 import logo from "../../../images/background-logo.png"
 
 const Inquiries = ({ data }) => {
-  console.log("Inquiries", data)
   const [formData, setFormData] = useState({
     yourName: "",
     yourEmail: "",
