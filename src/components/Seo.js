@@ -86,7 +86,7 @@ function Seo({ description, lang, meta, title, metaImg, location }) {
         image={siteLogoUrl}
         logo={siteLogoUrl}
         description={description}
-        datePublished="March 15, 2022"
+        datePublished="March 21, 2022"
         canonicalUrl="https://www.christinavaillancourt.com/"
         author=""
         organization="Christina Vaillancourt Registered Psychologist"
