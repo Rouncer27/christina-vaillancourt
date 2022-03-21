@@ -1,2 +1,11 @@
+# Redirect domain aliases to primary domain
+
+https://christinavaillancourt.com/* https://www.christinavaillancourt.com/:splat 301!
+http://christinavaillancourt.com/* https://www.christinavaillancourt.com/:splat 301!
+
+# Optional: Redirect default Netlify subdomain to primary domain
+
+https://chistinavaillancourt.netlify.app/* https://www.christinavaillancourt.com/:splat 301!
+
 /about.html /about
 /appointments.html /connect
