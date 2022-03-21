@@ -117,7 +117,7 @@ const PostStyled = styled(Link)`
   flex-direction: ${props => (props.reversepost ? "row-reverse" : "row")};
   width: 100%;
   margin-bottom: 5rem;
-  padding: 2rem 5rem;
+  padding: 2rem 0;
   background-color: #fff;
   border-bottom: 0.2rem solid ${colors.colorPrimary};
 
