@@ -170,6 +170,8 @@ const FooterStyled = styled.footer`
         flex-wrap: nowrap;
       }
 
+      display: none !important;
+
       p {
         ${H4Blue};
         width: 100%;
