@@ -9,8 +9,9 @@ import Quote from "../components/templates/home/Quote"
 import ServicesList from "../components/templates/home/ServicesList"
 
 const IndexPage = props => {
-  const { hero, seoInfo } = props.data
-  const heroData = hero.template.homeTemplate
+  console.log(props)
+  const { seoInfo } = props.data
+  const heroData = props.data.hero.template.homeTemplate
   const welcome = props.data.welcome.template.homeTemplate
   const quote = props.data.quote.template.homeTemplate
   const services = props.data.services.template.homeTemplate
