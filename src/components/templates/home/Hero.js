@@ -8,7 +8,7 @@ const Hero = ({ data }) => {
   const bgImg = data.heroImage
   return (
     <StyledSection>
-      <HeroImage bgImg={bgImg} />
+      {bgImg && <HeroImage bgImg={bgImg} />}
       <div className="hero-content">
         <div className="hero-content__main">
           <h2>
