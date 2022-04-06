@@ -36,6 +36,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
     const pages = data.pages.edges
     pages.forEach(({ node }) => {
+      console.log("MADE IT HERE TREVOR.....", node.template.templateName)
+      console.log("MADE IT HERE TREVOR.....", node.slug)
+
       if (node.slug === "home") {
         createPage({
           path: `/`,
