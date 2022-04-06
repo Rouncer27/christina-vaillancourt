@@ -1,7 +1,9 @@
 const path = require(`path`)
 exports.createPages = async ({ graphql, actions }) => {
+  console.log("START HERE TREVOR.....")
   const { createPage } = actions
   try {
+    console.log("MADE IT HERE TREVOR.....")
     const { data } = await graphql(`
       {
         pages: allWpPage {
@@ -29,6 +31,8 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     `)
+
+    console.log("2nd MADE IT HERE TREVOR.....")
 
     const pages = data.pages.edges
     pages.forEach(({ node }) => {
@@ -88,6 +92,8 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     })
 
+    console.log("3nd MADE IT HERE TREVOR.....")
+
     const posts = data.posts.edges
     posts.forEach(({ node }, index) => {
       createPage({
@@ -101,6 +107,7 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       })
     })
+    console.log("4nd MADE IT HERE TREVOR.....")
   } catch (err) {
     console.log("Error retrieving WordPress data", err)
   }
