@@ -7,7 +7,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^2.0.4",
     "dotenv": "^16.0.0",
-    "gatsby": "^4.8.0",
+    "gatsby": "4.11.2",
     "gatsby-plugin-canonical-urls": "^4.9.0",
     "gatsby-plugin-gatsby-cloud": "^4.8.0",
     "gatsby-plugin-google-gtag": "^4.9.0",
