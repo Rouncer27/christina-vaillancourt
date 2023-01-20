@@ -29,7 +29,7 @@ const Bio = ({ data }) => {
       })
       .add("start")
       .fromTo(
-        `.bio-content`,
+        `#bio-trigger .bio-content`,
         {
           autoAlpha: 0,
           x: -100,
@@ -43,7 +43,7 @@ const Bio = ({ data }) => {
       )
 
       .fromTo(
-        `.bio-image`,
+        `#bio-trigger .bio-image`,
         {
           autoAlpha: 0,
           y: 200,

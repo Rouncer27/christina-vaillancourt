@@ -5,6 +5,7 @@ import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import Hero from "../components/templates/about/Hero"
 import Bio from "../components/templates/about/Bio"
+import Team from "../components/templates/about/Team"
 import Quote from "../components/templates/about/Quote"
 import Divider from "../components/templates/about/Divider"
 
@@ -12,6 +13,7 @@ const About = props => {
   const { hero, seoInfo } = props.data
   const heroData = hero.template.aboutTemplate
   const bio = props.data.bio.template.aboutTemplate
+  const team = props.data.team.template.aboutTemplate
   const quote = props.data.quote.template.aboutTemplate
   const divider = props.data.divider.template.aboutTemplate
   return (
@@ -24,6 +26,7 @@ const About = props => {
       />
       <Hero data={heroData} />
       <Bio data={bio} />
+      <Team data={team} />
       <Quote data={quote} />
       <Divider data={divider} />
     </Layout>
@@ -79,6 +82,29 @@ export const aboutTempQuery = graphql`
                 url
                 childImageSharp {
                   gatsbyImageData(width: 1500)
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    team: wpPage(id: { eq: $id }) {
+      template {
+        ... on WpTemplate_About {
+          aboutTemplate {
+            aboutTeam {
+              aboutBioName
+              aboutBioContent
+              aboutBioImage {
+                altText
+                sourceUrl
+                localFile {
+                  url
+                  childImageSharp {
+                    gatsbyImageData(width: 1500)
+                  }
                 }
               }
             }
