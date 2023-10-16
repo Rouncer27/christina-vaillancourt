@@ -82,14 +82,25 @@ const HowItWorks = ({ data }) => {
           })}
         </div>
         <div className="popup-btn">
-          <button
-            type="button"
-            onClick={() => {
-              setPopupActive(true)
-            }}
-          >
-            Fee Information
-          </button>
+          <div>
+            <button
+              type="button"
+              onClick={() => {
+                setPopupActive(true)
+              }}
+            >
+              Fee Information
+            </button>
+          </div>
+          <div>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://portal.owlpractice.ca/christinav/booking"
+            >
+              Book Appointment
+            </a>
+          </div>
         </div>
       </div>
       {popupActive && (
@@ -160,12 +171,25 @@ const SectionStyled = styled.section`
   }
 
   .popup-btn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
     margin: 7.5rem auto;
     text-align: center;
 
     button {
       ${Btn1Blue};
+    }
+
+    a {
+      ${Btn1Blue};
+      margin-top: 4rem;
+
+      @media (min-width: 768px) {
+        margin-top: 0;
+        margin-left: 1rem;
+      }
     }
   }
 
