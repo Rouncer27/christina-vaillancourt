@@ -104,6 +104,15 @@ const Inquiries = ({ data }) => {
           className="intro"
           dangerouslySetInnerHTML={{ __html: data.bookingFormIntro }}
         />
+        <div className="book-now-button">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://portal.owlpractice.ca/christinav/booking"
+          >
+            Book Appointment
+          </a>
+        </div>
 
         <div className="contact-form">
           <form onSubmit={handleOnSubmit}>
@@ -266,6 +275,17 @@ const SectionStyled = styled.section`
 
     p {
       ${B2White};
+    }
+  }
+
+  .book-now-button {
+    width: 100%;
+    margin-bottom: 5rem;
+
+    a {
+      ${Btn1Blue};
+      background-color: ${colors.white};
+      color: ${colors.colorSecondary};
     }
   }
 
