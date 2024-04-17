@@ -62,12 +62,6 @@ const MeetYou = ({ data }) => {
                 </span>
                 <a href={`tel:+1${phoneNumber}`}>{phoneNumber}</a>
               </p>
-              <p className="email-address">
-                <span>
-                  <img src={email} alt="email address" />
-                </span>
-                <a href={`tel:+1${emailAddress}`}>{emailAddress}</a>
-              </p>
             </div>
             <div
               className="street-address"
