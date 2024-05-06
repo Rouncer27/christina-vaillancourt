@@ -88,6 +88,10 @@ const SectionStyled = styled.section`
 
     a {
       ${B2Blue};
+
+      &:hover {
+        color: ${colors.colorPrimary};
+      }
     }
   }
 
