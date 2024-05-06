@@ -87,7 +87,7 @@ const SectionStyled = styled.section`
     }
 
     a {
-      ${Btn1Blue};
+      ${B2Blue};
     }
   }
 
