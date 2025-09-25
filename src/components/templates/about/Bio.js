@@ -10,6 +10,7 @@ import {
 } from "../../../styles/helpers"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import PsychologyTodaySeal from "../common/PsychologyTodaySeal"
 gsap.registerPlugin(ScrollTrigger)
 
 const Bio = ({ data }) => {
@@ -78,6 +79,7 @@ const Bio = ({ data }) => {
             />
           </div>
         </div>
+        <PsychologyTodaySeal />
       </div>
     </SectionStyled>
   )
