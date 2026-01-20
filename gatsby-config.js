@@ -52,7 +52,7 @@ module.exports = {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: "https://www.christinavaillancourt.com/",
-        sitemap: "https://www.christinavaillancourt.com/sitemap.xml",
+        sitemap: "https://www.christinavaillancourt.com/sitemap-index.xml",
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
