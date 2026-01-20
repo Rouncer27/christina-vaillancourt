@@ -61,6 +61,5 @@ module.exports = {
         siteUrl: `https://www.christinavaillancourt.com/`,
       },
     },
-    `gatsby-plugin-netlify`,
   ],
 }
