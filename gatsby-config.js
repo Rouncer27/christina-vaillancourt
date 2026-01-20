@@ -11,6 +11,7 @@ module.exports = {
     siteUrl: `https://www.christinavaillancourt.com/`,
   },
   plugins: [
+    "gatsby-plugin-netlify",
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-styled-components`,
